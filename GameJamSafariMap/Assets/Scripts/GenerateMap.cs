@@ -1,0 +1,166 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+public class GenerateMap : MonoBehaviour
+{
+    public GameObject Land;
+    public GameObject Water;
+    public GameObject Player;
+    public GameObject Sheep;
+    public GameObject Goblin;
+
+
+
+    public GameObject Reveal;
+
+    public string mapSeed;
+
+    private int mapLength;
+    
+
+
+    void Awake()
+    {
+        int columns = int.Parse(mapSeed[..1]);
+        int output = 0;
+        mapLength = 0;
+
+        for(int i = 1; i < mapSeed.Length; i++)
+        {
+            bool succes = int.TryParse(mapSeed.Substring(i, 1), out output);
+            if (!succes)
+            {
+                generateMap(mapSeed[i], columns,ref i);
+            }
+            else
+            {
+                for (int j = 1; j < output; j++)
+                {
+                    generateMap(mapSeed[i + 1], columns,ref i);
+                }
+            }
+
+        }
+        transform.position= new Vector3((columns/2)*2.5f,0,-((mapLength / columns) / 2f)*2.5f);
+
+
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void generateMap(char a,int columns,ref int i)
+    {
+        if (a.Equals('W'))
+        {
+            GenerateTile(Water, columns);
+        }
+        if (a.Equals('R'))
+        {
+            int xLength = mapLength / columns;
+            int zLength = mapLength % columns;
+            Vector3 standardSize = new Vector3(2.5f, 0, 2.5f);
+            mapLength++;
+            GameObject newReveal = Instantiate(Reveal, transform.position + new Vector3(zLength * standardSize.z, 1 , -xLength * standardSize.x), Quaternion.Euler(Vector3.zero));
+            RevealPickup TheScript = newReveal.GetComponent<RevealPickup>();
+
+            i++;
+            int xcoordinate;
+            if(mapSeed.Substring(i, 1) == "-")
+            {
+                i++;
+                xcoordinate = -int.Parse(mapSeed.Substring(i , 1));
+                
+            }
+            else
+            {
+                xcoordinate = int.Parse(mapSeed.Substring(i, 1));
+            }
+            i++;
+            int ycoordinate;
+            if (mapSeed.Substring(i, 1) == "-")
+            {
+                i++;
+                ycoordinate = -int.Parse(mapSeed.Substring(i, 1));
+                
+            }
+            else
+            {
+                ycoordinate = int.Parse(mapSeed.Substring(i , 1));
+            }
+            i+=2;
+            TheScript.Where = new Vector2(xcoordinate,ycoordinate);
+            
+            
+            // R is READ, the where is read AND the ( is read
+            string seed = "";
+            int endAmount = 1;
+            while(endAmount!=0)
+            {
+                seed += mapSeed[i];
+                i++;
+                if (mapSeed.Substring(i, 1) == "(")
+                { 
+                    endAmount++;
+                }
+
+                if (mapSeed.Substring(i, 1) == ")")
+                {
+                    endAmount--;
+                    
+                }
+            }
+            TheScript.mapSeed = seed;
+
+            
+        }
+        if (a.Equals('L'))
+        {
+            GenerateTile(Land, columns);
+        }
+        if (a.Equals('P'))
+        {
+            GenerateEntity(Player,columns);
+            GenerateTile(Land, columns);
+            
+        }
+        if (a.Equals('S'))
+        {
+            GenerateEntity(Sheep,columns);
+            GenerateTile(Land, columns);
+
+        }
+        if (a.Equals('G'))
+        {
+            GenerateEntity(Goblin, columns);
+            GenerateTile(Land, columns);
+
+        }
+    }
+    private void GenerateEntity(GameObject entity, int columns)
+    {
+        int xLength = mapLength / columns;
+        int zLength = mapLength % columns;
+        Vector3 standardSize = new Vector3(2.5f, 0, 2.5f);
+        Instantiate(entity, transform.position + new Vector3((zLength+0.5f) * standardSize.z, 10, (-xLength-0.5f) * standardSize.x), transform.rotation);
+    }
+
+   
+
+    private void GenerateTile(GameObject prefab, int columns)
+    {
+        int xLength= mapLength/columns;
+        int zLength= mapLength%columns;
+        Vector3 standardSize = new Vector3(2.5f, 0, 2.5f);
+        mapLength++;
+        Instantiate(prefab, transform.position + new Vector3(zLength*standardSize.z,1,-xLength*standardSize.x), transform.rotation);
+        
+    }
+}
