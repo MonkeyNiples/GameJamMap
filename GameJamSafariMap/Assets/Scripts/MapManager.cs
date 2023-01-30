@@ -24,17 +24,23 @@ public class MapManager : MonoBehaviour
 
     void Start()
     {
+        Invoke("StartDelayed", 0.001f);
+        
+    }
+
+    private void StartDelayed()
+    {
         transform.localPosition = new Vector3(0, 0, 0);
         List<GameObject> Map = new List<GameObject>();
         GameObject Base = GameObject.Find("Base");
         Vector3 BasePosition = Base.transform.position;
 
         GameObject[] RealLandArray = GameObject.FindGameObjectsWithTag("T_Land");
-        foreach(GameObject RealLand in RealLandArray)
+        foreach (GameObject RealLand in RealLandArray)
         {
-            GameObject UILand = Instantiate(UILandPrefab, transform.position , transform.rotation);
+            GameObject UILand = Instantiate(UILandPrefab, transform.position, transform.rotation);
             UILand.transform.position = RealLand.transform.position - BasePosition;
-            UILand.transform.position = new Vector3(UILand.transform.position.x*40, UILand.transform.position.z * 40);
+            UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40);
             UILand.transform.SetParent(transform, false);
         }
 
@@ -44,7 +50,7 @@ public class MapManager : MonoBehaviour
             GameObject UILand = Instantiate(UIWaterPrefab, transform.position, transform.rotation);
             UILand.transform.position = RealWater.transform.position - BasePosition;
             UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40);
-            UILand.transform.SetParent(transform, false);   
+            UILand.transform.SetParent(transform, false);
         }
         GameObject[] RealTreeArray = GameObject.FindGameObjectsWithTag("T_ObstacleLand2");
         foreach (GameObject RealTree in RealTreeArray)
@@ -64,7 +70,7 @@ public class MapManager : MonoBehaviour
         }
 
         GameObject UIPlayer = Instantiate(UIPlayerPrefab, transform.position, transform.rotation);
-        UIPlayer.transform.position = GetPlayerLocation(); 
+        UIPlayer.transform.position = GetPlayerLocation();
         UIPlayer.transform.SetParent(transform, false);
 
         GameObject UISheep = Instantiate(UISheepPrefab, transform.position, transform.rotation);
@@ -79,12 +85,12 @@ public class MapManager : MonoBehaviour
 
         GameObject TreeGroup = new GameObject("TreeGroup");
 
-        GameObject[] AllLands =  RealLandArray.Concat(RealWaterArray.Concat(RealRevealArray).ToArray()).ToArray();
-        for(int i = 0; i < AllLands.Length; i++)
+        GameObject[] AllLands = RealLandArray.Concat(RealWaterArray.Concat(RealRevealArray).ToArray()).ToArray();
+        for (int i = 0; i < AllLands.Length; i++)
         {
             GameObject Land = AllLands[i];
-            bool hasMore=false;
-            for(int j = 0; j < AllLands.Length; j++)
+            bool hasMore = false;
+            for (int j = 0; j < AllLands.Length; j++)
             {
                 GameObject CompareLand = AllLands[j];
                 if (Land.transform.position.x > CompareLand.transform.position.x)
@@ -93,10 +99,10 @@ public class MapManager : MonoBehaviour
                     break;
                 }
             }
-            
+
             if (!hasMore)
             {
-                GameObject tree = Instantiate(Tree, Land.transform.position - new Vector3(2.5f,0,0), transform.rotation);
+                GameObject tree = Instantiate(Tree, Land.transform.position - new Vector3(2.5f, 0, 0), transform.rotation);
                 tree.transform.SetParent(TreeGroup.transform);
                 GameObject UILand = Instantiate(UITreePrefab, transform.position, transform.rotation);
                 UILand.transform.position = tree.transform.position - BasePosition;
@@ -224,7 +230,9 @@ public class MapManager : MonoBehaviour
     void Update()
     {
         GameObject Player = GameObject.Find("Player");
-        if(Player.GetComponent<PlayerManager>() != null)
+        if (Player == null)
+            Player = GameObject.Find("Player(Clone)");
+        if (Player.GetComponent<PlayerManager>() != null)
         {
             PlayerManager TheScript = Player.GetComponent<PlayerManager>();
             if (TheScript.UsingMap)

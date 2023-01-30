@@ -17,7 +17,10 @@ public class SheepAI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
         {
             GameObject RealPlayer = GameObject.Find("Player");
-
+            if (RealPlayer == null)
+            {
+                RealPlayer = GameObject.Find("Player(Clone)");
+             }
             int RowDiff = (Mathf.CeilToInt((transform.position.x) * 2f / 5)) - (Mathf.CeilToInt(RealPlayer.transform.position.x * 2 / 5f));
 
             int ColumnDiff = (Mathf.CeilToInt((transform.position.z) * 2f / 5)) - (Mathf.CeilToInt(RealPlayer.transform.position.z * 2 / 5f));

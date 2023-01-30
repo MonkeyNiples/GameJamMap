@@ -19,6 +19,10 @@ public class TrackPlayerOnMap : MonoBehaviour
         GameObject Base = GameObject.Find("Base");
         Vector3 BasePosition = Base.transform.position;
         GameObject RealPlayer = GameObject.Find("Player");
+        if (RealPlayer == null)
+        {
+            RealPlayer = GameObject.Find("Player(Clone)");
+        }
         Vector3 returnVector = RealPlayer.transform.position - BasePosition;
         returnVector = new Vector3(returnVector.x * 20, returnVector.z * 20);
         return returnVector;

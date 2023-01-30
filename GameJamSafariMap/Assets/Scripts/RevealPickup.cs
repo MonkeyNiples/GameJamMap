@@ -38,7 +38,7 @@ public class RevealPickup : MonoBehaviour
 
     private void OnCollisionEnter(Collision collission)
     {
-        if (collission.collider.gameObject.name == "Player" && !IsTriggered)
+        if ((collission.collider.gameObject.name == "Player" || collission.collider.gameObject.name == "Player(Clone)") && !IsTriggered)
         {
             IsTriggered = true;
             int columns = int.Parse(mapSeed[..1]); ;
