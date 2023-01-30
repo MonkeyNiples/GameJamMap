@@ -4938,7 +4938,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e363dc67d5d6c8245a7a159e4e983707, type: 2}
     - target: {fileID: 919132149155446097, guid: e3506391219de2f4bb4850fc36339c58, type: 3}
       propertyPath: m_Name
-      value: MapRevealTile
+      value: MapRevealTile Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e3506391219de2f4bb4850fc36339c58, type: 3}
       propertyPath: m_TagString
@@ -4989,6 +4989,6 @@ MonoBehaviour:
   Goblin: {fileID: 2129718658888651413, guid: f07a8876145a11f40a9f83eb8f806bb4, type: 3}
   Sheep: {fileID: 3716805852375126293, guid: 69375d93fd90c6e439f4e931f0295f13, type: 3}
   Player: {fileID: 975002447090720784, guid: 8da0b6812cef0a14d85f1047a23e98ca, type: 3}
-  Map: {fileID: 3045826672683113553, guid: 57203752033479e478226fe8b1d96a9d, type: 3}
+  Map: {fileID: 8918551443386482225, guid: 57203752033479e478226fe8b1d96a9d, type: 3}
   mapSeed: 
   Where: {x: 0, y: 0}

@@ -188,7 +188,7 @@ public class MapManager : MonoBehaviour
             returnVector = new Vector3(returnVector.x * 40, returnVector.z * 40, 0);
             return returnVector + new Vector3(-25,25);
         }
-        return Vector3.zero;
+        return new Vector3(2000,2000);
     }
 
     private Vector3 GetAnimalLocation()
@@ -204,7 +204,8 @@ public class MapManager : MonoBehaviour
             returnVector = new Vector3(returnVector.x * 40, returnVector.z * 40, 0);
             return returnVector + new Vector3(-25,25) ;
         }
-        return Vector3.zero;
+        return new Vector3(2000, 2000);
+
     }
 
     private Vector3 GetPlayerLocation()
