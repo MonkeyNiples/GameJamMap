@@ -8,9 +8,11 @@ public class MapManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject UILandPrefab;
-    public GameObject UITWaterPrefab;
+    public GameObject UIWaterPrefab;
     public GameObject UIPlayerPrefab;
     public GameObject UIRevealPrefab;
+    public GameObject UITreePrefab;
+
     public GameObject UISheepPrefab;
     public GameObject UIGoblinPrefab;
 
@@ -32,16 +34,24 @@ public class MapManager : MonoBehaviour
         {
             GameObject UILand = Instantiate(UILandPrefab, transform.position , transform.rotation);
             UILand.transform.position = RealLand.transform.position - BasePosition;
-            UILand.transform.position = new Vector3(UILand.transform.position.x*20, UILand.transform.position.z * 20);
+            UILand.transform.position = new Vector3(UILand.transform.position.x*40, UILand.transform.position.z * 40);
             UILand.transform.SetParent(transform, false);
         }
 
         GameObject[] RealWaterArray = GameObject.FindGameObjectsWithTag("T_ObstacleLand");
         foreach (GameObject RealWater in RealWaterArray)
         {
-            GameObject UILand = Instantiate(UITWaterPrefab, transform.position, transform.rotation);
+            GameObject UILand = Instantiate(UIWaterPrefab, transform.position, transform.rotation);
             UILand.transform.position = RealWater.transform.position - BasePosition;
-            UILand.transform.position = new Vector3(UILand.transform.position.x * 20, UILand.transform.position.z * 20);
+            UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40);
+            UILand.transform.SetParent(transform, false);   
+        }
+        GameObject[] RealTreeArray = GameObject.FindGameObjectsWithTag("T_ObstacleLand2");
+        foreach (GameObject RealTree in RealTreeArray)
+        {
+            GameObject UILand = Instantiate(UITreePrefab, transform.position, transform.rotation);
+            UILand.transform.position = RealTree.transform.position - BasePosition;
+            UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40);
             UILand.transform.SetParent(transform, false);
         }
         GameObject[] RealRevealArray = GameObject.FindGameObjectsWithTag("T_Reveal");
@@ -49,7 +59,7 @@ public class MapManager : MonoBehaviour
         {
             GameObject UILand = Instantiate(UIRevealPrefab, transform.position, transform.rotation);
             UILand.transform.position = RealReveal.transform.position - BasePosition;
-            UILand.transform.position = new Vector3(UILand.transform.position.x * 20, UILand.transform.position.z * 20);
+            UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40);
             UILand.transform.SetParent(transform, false);
         }
 
@@ -65,9 +75,11 @@ public class MapManager : MonoBehaviour
         UIGoblin.transform.position = GetGoblinLocation();
         UIGoblin.transform.SetParent(transform, false);
 
+
+
         GameObject TreeGroup = new GameObject("TreeGroup");
 
-        GameObject[] AllLands =  RealLandArray.Concat(RealWaterArray.Concat(RealRevealArray).ToArray()).ToArray();
+        GameObject[] AllLands =  RealLandArray.Concat(RealWaterArray.Concat(RealRevealArray.Concat(RealTreeArray).ToArray()).ToArray()).ToArray();
         for(int i = 0; i < AllLands.Length; i++)
         {
             GameObject Land = AllLands[i];
@@ -86,6 +98,10 @@ public class MapManager : MonoBehaviour
             {
                 GameObject tree = Instantiate(Tree, Land.transform.position - new Vector3(2.5f,0,0), transform.rotation);
                 tree.transform.SetParent(TreeGroup.transform);
+                GameObject UILand = Instantiate(UITreePrefab, transform.position, transform.rotation);
+                UILand.transform.position = tree.transform.position - BasePosition;
+                UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40);
+                UILand.transform.SetParent(transform, false);
             }
         }
         for (int i = 0; i < AllLands.Length; i++)
@@ -105,6 +121,10 @@ public class MapManager : MonoBehaviour
             {
                 GameObject tree = Instantiate(Tree, Land.transform.position - new Vector3(-2.5f, 0, 0), transform.rotation);
                 tree.transform.SetParent(TreeGroup.transform);
+                GameObject UILand = Instantiate(UITreePrefab, transform.position, transform.rotation);
+                UILand.transform.position = tree.transform.position - BasePosition;
+                UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40);
+                UILand.transform.SetParent(transform, false);
 
             }
         }
@@ -125,7 +145,10 @@ public class MapManager : MonoBehaviour
             {
                 GameObject tree = Instantiate(Tree, Land.transform.position - new Vector3(0, 0, 2.5f), transform.rotation);
                 tree.transform.SetParent(TreeGroup.transform);
-
+                GameObject UILand = Instantiate(UITreePrefab, transform.position, transform.rotation);
+                UILand.transform.position = tree.transform.position - BasePosition;
+                UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40);
+                UILand.transform.SetParent(transform, false);
             }
         }
         for (int i = 0; i < AllLands.Length; i++)
@@ -145,7 +168,10 @@ public class MapManager : MonoBehaviour
             {
                 GameObject tree = Instantiate(Tree, Land.transform.position - new Vector3(0, 0, -2.5f), transform.rotation);
                 tree.transform.SetParent(TreeGroup.transform);
-
+                GameObject UILand = Instantiate(UITreePrefab, transform.position, transform.rotation);
+                UILand.transform.position = tree.transform.position - BasePosition;
+                UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40);
+                UILand.transform.SetParent(transform, false);
             }
         }
     }
@@ -159,8 +185,8 @@ public class MapManager : MonoBehaviour
         if (RealGoblin != null)
         {
             Vector3 returnVector = RealGoblin.transform.position - BasePosition;
-            returnVector = new Vector3(returnVector.x * 20, returnVector.z * 20, 0);
-            return returnVector + new Vector3(1920 / 2, 1080 / 2) - new Vector3(25, -25);
+            returnVector = new Vector3(returnVector.x * 40, returnVector.z * 40, 0);
+            return returnVector + new Vector3(-25,25);
         }
         return Vector3.zero;
     }
@@ -175,8 +201,8 @@ public class MapManager : MonoBehaviour
         if (RealSheep != null)
         {
             Vector3 returnVector = RealSheep.transform.position - BasePosition;
-            returnVector = new Vector3(returnVector.x * 20, returnVector.z * 20, 0);
-            return returnVector + new Vector3(1920 / 2, 1080 / 2) - new Vector3(25, -25);
+            returnVector = new Vector3(returnVector.x * 40, returnVector.z * 40, 0);
+            return returnVector + new Vector3(-25,25) ;
         }
         return Vector3.zero;
     }
@@ -189,8 +215,8 @@ public class MapManager : MonoBehaviour
         if (RealPlayer == null)
             RealPlayer = GameObject.Find("Player(Clone)");
         Vector3 returnVector = RealPlayer.transform.position-BasePosition;
-        returnVector = new Vector3(returnVector.x * 20, returnVector.z * 20,0);
-        return returnVector+new Vector3(1920/2,1080/2)-new Vector3(25,-25);
+        returnVector = new Vector3(returnVector.x * 40, returnVector.z * 40, 0);
+        return returnVector + new Vector3(-25, 25);
     }
 
     // Update is called once per frame
@@ -203,15 +229,15 @@ public class MapManager : MonoBehaviour
             if (TheScript.UsingMap)
             {
                 GameObject UIPlayerReal = GameObject.Find("UI_Player(Clone)");
-                UIPlayerReal.transform.position = GetPlayerLocation();
-                transform.localPosition = new Vector3(0, 0, 0);
+                UIPlayerReal.transform.localPosition = GetPlayerLocation();
 
                 GameObject UISheep = GameObject.Find("UI_Sheep(Clone)");
-                UISheep.transform.position = GetAnimalLocation();
-                transform.localPosition = new Vector3(0, 0, 0);
+                UISheep.transform.localPosition = GetAnimalLocation();
 
                 GameObject UIGoblin = GameObject.Find("UI_Goblin(Clone)");
-                UIGoblin.transform.position = GetGoblinLocation();
+                UIGoblin.transform.localPosition = GetGoblinLocation();
+    
+
                 transform.localPosition = new Vector3(0, 0, 0);
 
             }

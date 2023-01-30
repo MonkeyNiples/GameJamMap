@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6554738124257435552
+--- !u!1 &3045826672683113553
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6554738124257435555}
-  - component: {fileID: 6554738124257435557}
-  - component: {fileID: 6554738124257435554}
-  - component: {fileID: 6554738124257435556}
+  - component: {fileID: 3045826672950399680}
+  - component: {fileID: 3045826672950399687}
+  - component: {fileID: 3045826672950399686}
+  - component: {fileID: 3045826672950399681}
   m_Layer: 5
   m_Name: Map
   m_TagString: Untagged
@@ -19,13 +19,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6554738124257435555
+--- !u!224 &3045826672950399680
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6554738124257435552}
+  m_GameObject: {fileID: 3045826672683113553}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -37,23 +37,23 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 920, y: 500}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6554738124257435557
+--- !u!222 &3045826672950399687
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6554738124257435552}
+  m_GameObject: {fileID: 3045826672683113553}
   m_CullTransparentMesh: 1
---- !u!114 &6554738124257435554
+--- !u!114 &3045826672950399686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6554738124257435552}
+  m_GameObject: {fileID: 3045826672683113553}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0c52af65913475441b12a9946fea65ad, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58b40cb6077075f4c9dbee8e7545e5ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -77,22 +77,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6554738124257435556
+--- !u!114 &3045826672950399681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6554738124257435552}
+  m_GameObject: {fileID: 3045826672683113553}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1875963b2504c2541b6a64f8ab4ab580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UILandPrefab: {fileID: 4694108849737322497, guid: d91cd36aad168d34eac77f222beaa14f, type: 3}
-  UITWaterPrefab: {fileID: 6330505233076839948, guid: 416d94381419ac24ca873c5c37c7c754, type: 3}
-  UIPlayerPrefab: {fileID: 4874531494129371952, guid: b93b11b27b9cb784ea2296d86fba05b2, type: 3}
-  UIRevealPrefab: {fileID: 3733603913384889026, guid: ba8301c7335b1f0478198084a7eefcd0, type: 3}
-  UISheepPrefab: {fileID: 3093892160541973125, guid: 3ca2ebf57e051794d96a87008cb3e7c0, type: 3}
-  UIGoblinPrefab: {fileID: 835262138947652012, guid: 1d6de622c2f3ccf47b4d31c0aeffdebb, type: 3}
+  UILandPrefab: {fileID: 6633925993642479668, guid: d91cd36aad168d34eac77f222beaa14f, type: 3}
+  UIWaterPrefab: {fileID: 1864221831155436727, guid: 416d94381419ac24ca873c5c37c7c754, type: 3}
+  UIPlayerPrefab: {fileID: 2372679030273498634, guid: b93b11b27b9cb784ea2296d86fba05b2, type: 3}
+  UIRevealPrefab: {fileID: 5165418431895930333, guid: 9ef12e2bb7ed0e94380d691d7ade5c6d, type: 3}
+  UITreePrefab: {fileID: 5052719059817873255, guid: d667fd2c6c8070543bca6a2df884a84d, type: 3}
+  UISheepPrefab: {fileID: 8969720973488203428, guid: 3ca2ebf57e051794d96a87008cb3e7c0, type: 3}
+  UIGoblinPrefab: {fileID: 5517477766956682193, guid: 1d6de622c2f3ccf47b4d31c0aeffdebb, type: 3}
   Tree: {fileID: 1385816979568925822, guid: de2e2f6a95a23664b982bc441c03bf44, type: 3}

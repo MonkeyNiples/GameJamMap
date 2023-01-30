@@ -4894,15 +4894,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e3506391219de2f4bb4850fc36339c58, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.09
+      value: 5.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e3506391219de2f4bb4850fc36339c58, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.58
+      value: 22.869999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e3506391219de2f4bb4850fc36339c58, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.88
+      value: -6.83
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e3506391219de2f4bb4850fc36339c58, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4983,11 +4983,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Land: {fileID: 3519981835983219857, guid: 3bd26bc5d1cfa3a4baebd748f968341f, type: 3}
   Water: {fileID: 6164874822334585394, guid: 1ae558351f09d8747863e9cb979cdb2e, type: 3}
+  TreeTile: {fileID: 5688844690671238955, guid: 6a8dd16dadb590f42b740980f8a5f8d7, type: 3}
   Reveal: {fileID: 5716202432293222671}
   IsTriggered: 0
   Goblin: {fileID: 2129718658888651413, guid: f07a8876145a11f40a9f83eb8f806bb4, type: 3}
   Sheep: {fileID: 3716805852375126293, guid: 69375d93fd90c6e439f4e931f0295f13, type: 3}
   Player: {fileID: 975002447090720784, guid: 8da0b6812cef0a14d85f1047a23e98ca, type: 3}
-  Map: {fileID: 6554738124257435552, guid: 57203752033479e478226fe8b1d96a9d, type: 3}
+  Map: {fileID: 3045826672683113553, guid: 57203752033479e478226fe8b1d96a9d, type: 3}
   mapSeed: 
   Where: {x: 0, y: 0}

@@ -8,6 +8,7 @@ public class RevealPickup : MonoBehaviour
 
     public GameObject Land;
     public GameObject Water;
+    public GameObject TreeTile;
     public GameObject Reveal;
     public bool IsTriggered = false;
     public GameObject Goblin;
@@ -64,6 +65,8 @@ public class RevealPickup : MonoBehaviour
 
 
             GameObject map = GameObject.Find("Map");
+            if (map == null)
+                map = GameObject.Find("Map(Clone)");
             Destroy(map);
             GameObject TreeGroup = GameObject.Find("TreeGroup");
             Destroy(TreeGroup);
@@ -76,6 +79,10 @@ public class RevealPickup : MonoBehaviour
         if (a.Equals('W'))
         {
             GenerateTile(Water, columns);
+        }
+        if (a.Equals('T'))
+        {
+            GenerateTile(TreeTile, columns);
         }
         if (a.Equals('R'))
         {
@@ -161,6 +168,7 @@ public class RevealPickup : MonoBehaviour
             GenerateTile(Land, columns);
 
         }
+
     }
     private void GenerateEntity(GameObject entity, int columns)
     {
