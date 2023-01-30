@@ -133,6 +133,7 @@ MonoBehaviour:
   Player: {fileID: 975002447090720784, guid: 8da0b6812cef0a14d85f1047a23e98ca, type: 3}
   Sheep: {fileID: 3716805852375126293, guid: 69375d93fd90c6e439f4e931f0295f13, type: 3}
   Tree: {fileID: 2215274075504970156, guid: de2e2f6a95a23664b982bc441c03bf44, type: 3}
+  BreakingTile: {fileID: 4973854855079746029, guid: d9090130903d0a64795013b1bb581033, type: 3}
   Goblin: {fileID: 2129718658888651413, guid: f07a8876145a11f40a9f83eb8f806bb4, type: 3}
   Reveal: {fileID: 5716202432293222671, guid: b26f8767cec6c134cb85167494909634, type: 3}
   mapSeed: 79L9L9L8W

@@ -4938,7 +4938,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e363dc67d5d6c8245a7a159e4e983707, type: 2}
     - target: {fileID: 919132149155446097, guid: e3506391219de2f4bb4850fc36339c58, type: 3}
       propertyPath: m_Name
-      value: MapRevealTile
+      value: MapRevealTile Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e3506391219de2f4bb4850fc36339c58, type: 3}
       propertyPath: m_TagString
@@ -4984,6 +4984,7 @@ MonoBehaviour:
   Land: {fileID: 3519981835983219857, guid: 3bd26bc5d1cfa3a4baebd748f968341f, type: 3}
   Water: {fileID: 6164874822334585394, guid: 1ae558351f09d8747863e9cb979cdb2e, type: 3}
   TreeTile: {fileID: 2215274075504970156, guid: de2e2f6a95a23664b982bc441c03bf44, type: 3}
+  BreakingTile: {fileID: 4973854855079746029, guid: d9090130903d0a64795013b1bb581033, type: 3}
   Reveal: {fileID: 5716202432293222671}
   IsTriggered: 0
   Goblin: {fileID: 2129718658888651413, guid: f07a8876145a11f40a9f83eb8f806bb4, type: 3}

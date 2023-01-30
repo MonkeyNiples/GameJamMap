@@ -14,7 +14,6 @@ public class FogMaterialSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject RealPlayer = GameObject.Find("Player");
         UpdateShader();
 
     }
@@ -31,7 +30,11 @@ public class FogMaterialSwitch : MonoBehaviour
     private void UpdateShader()
     {
         
-            GameObject RealPlayer = GameObject.Find("Player");
+             GameObject RealPlayer = GameObject.Find("Player");
+             if (RealPlayer == null)
+             {
+            RealPlayer = GameObject.Find("Player(Clone)");
+             }
 
             int RowDiff = (Mathf.CeilToInt((transform.position.x ) * 2f / 5)) - (Mathf.CeilToInt(RealPlayer.transform.position.x * 2 / 5f));
 

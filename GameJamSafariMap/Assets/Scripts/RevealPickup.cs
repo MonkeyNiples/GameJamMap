@@ -9,6 +9,8 @@ public class RevealPickup : MonoBehaviour
     public GameObject Land;
     public GameObject Water;
     public GameObject TreeTile;
+    public GameObject BreakingTile;
+
     public GameObject Reveal;
     public bool IsTriggered = false;
     public GameObject Goblin;
@@ -38,7 +40,7 @@ public class RevealPickup : MonoBehaviour
 
     private void OnCollisionEnter(Collision collission)
     {
-        if (collission.collider.gameObject.name == "Player" && !IsTriggered)
+        if ((collission.collider.gameObject.name == "Player" || collission.collider.gameObject.name == "Player(Clone)") && !IsTriggered)
         {
             IsTriggered = true;
             int columns = int.Parse(mapSeed[..1]); ;
@@ -167,6 +169,11 @@ public class RevealPickup : MonoBehaviour
         {
             GenerateEntity(Goblin, columns);
             GenerateTile(Land, columns);
+
+        }
+        if (a.Equals('B'))
+        {
+            GenerateTile(BreakingTile, columns);
 
         }
 

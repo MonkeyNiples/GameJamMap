@@ -94,6 +94,7 @@ MonoBehaviour:
   UIPlayerPrefab: {fileID: 2372679030273498634, guid: b93b11b27b9cb784ea2296d86fba05b2, type: 3}
   UIRevealPrefab: {fileID: 5165418431895930333, guid: 9ef12e2bb7ed0e94380d691d7ade5c6d, type: 3}
   UITreePrefab: {fileID: 5052719059817873255, guid: d667fd2c6c8070543bca6a2df884a84d, type: 3}
+  UIBreakingTilePrefab: {fileID: 5970061182696732669, guid: 32640f764906b504f80824fee043dafd, type: 3}
   UISheepPrefab: {fileID: 8969720973488203428, guid: 3ca2ebf57e051794d96a87008cb3e7c0, type: 3}
   UIGoblinPrefab: {fileID: 5517477766956682193, guid: 1d6de622c2f3ccf47b4d31c0aeffdebb, type: 3}
   Tree: {fileID: 2215274075504970156, guid: de2e2f6a95a23664b982bc441c03bf44, type: 3}

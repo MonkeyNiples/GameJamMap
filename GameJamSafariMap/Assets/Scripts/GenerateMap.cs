@@ -11,6 +11,8 @@ public class GenerateMap : MonoBehaviour
     public GameObject Player;
     public GameObject Sheep;
     public GameObject Tree;
+    public GameObject BreakingTile;
+
 
     public GameObject Goblin;
 
@@ -150,6 +152,11 @@ public class GenerateMap : MonoBehaviour
             GenerateTile(Tree, columns);
 
         }
+        if (a.Equals('B'))
+        {
+            GenerateTileWILLEM(BreakingTile, columns);
+
+        }
     }
     private void GenerateEntity(GameObject entity, int columns)
     {
@@ -169,5 +176,14 @@ public class GenerateMap : MonoBehaviour
         mapLength++;
         Instantiate(prefab, transform.position + new Vector3(zLength*standardSize.z,1,-xLength*standardSize.x), transform.rotation);
         
+    }
+    private void GenerateTileWILLEM(GameObject prefab, int columns)
+    {
+        int xLength = mapLength / columns;
+        int zLength = mapLength % columns;
+        Vector3 standardSize = new Vector3(2.5f, 0, 2.5f);
+        mapLength++;
+        Instantiate(prefab, transform.position + new Vector3(zLength * standardSize.z, 1.5f, -xLength * standardSize.x), transform.rotation);
+
     }
 }

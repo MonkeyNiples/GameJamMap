@@ -18,7 +18,7 @@ public class FollowPlayer : MonoBehaviour
            transform.position = Player.transform.position+new Vector3(0,4.3f,-5.4f);
         else
         {
-            Player = GameObject.Find("Player(Copy)");
+            Player = GameObject.Find("Player(Clone)");
             transform.position = Player.transform.position + new Vector3(0, 5.3f, -3.6f);
 
         }
