@@ -15,6 +15,7 @@ public class FogMaterialSwitch : MonoBehaviour
     void Start()
     {
         UpdateShader();
+        Invoke("UpdateShader", 0.01f);
 
     }
 
@@ -40,19 +41,23 @@ public class FogMaterialSwitch : MonoBehaviour
 
             int ColumnDiff = (Mathf.CeilToInt((transform.position.z) * 2f / 5)) - (Mathf.CeilToInt(RealPlayer.transform.position.z * 2 / 5f));
 
-            if (RowDiff == 0 && ColumnDiff == 0)
-                transform.GetComponent<MeshRenderer>().material = Transparent;
-            else if (RowDiff > 1 || ColumnDiff > 1 || ColumnDiff < -1 || RowDiff < -1)
+        if (RowDiff == 0 && ColumnDiff == 0)
+        {
+            transform.GetComponent<MeshRenderer>().material = Transparent;
+            this.GetComponentInChildren<ParticleSystem>().Stop();
+
+        }
+        else if (RowDiff > 1 || ColumnDiff > 1 || ColumnDiff < -1 || RowDiff < -1)
         {
             transform.GetComponent<MeshRenderer>().material = Hard_Fog;
             this.GetComponentInChildren<ParticleSystem>().Play();
         }
-                
-            else
-            {
+
+        else
+        {
             transform.GetComponent<MeshRenderer>().material = Soft_Fog;
             this.GetComponentInChildren<ParticleSystem>().Stop();
-            }
+        }
             
 
         
