@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8918551443386482225
+--- !u!1 &6452697871790995941
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1211964165792606525}
-  - component: {fileID: 2349758976486299326}
-  - component: {fileID: 4516181443911350858}
-  - component: {fileID: 3566278715885724335}
+  - component: {fileID: 5286474420659376343}
+  - component: {fileID: 7004850940163804009}
+  - component: {fileID: 7992575655378576016}
+  - component: {fileID: 1978832427111445663}
   m_Layer: 5
   m_Name: Map
   m_TagString: Untagged
@@ -19,13 +19,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1211964165792606525
+--- !u!224 &5286474420659376343
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8918551443386482225}
+  m_GameObject: {fileID: 6452697871790995941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -39,21 +39,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2349758976486299326
+--- !u!222 &7004850940163804009
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8918551443386482225}
+  m_GameObject: {fileID: 6452697871790995941}
   m_CullTransparentMesh: 1
---- !u!114 &4516181443911350858
+--- !u!114 &7992575655378576016
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8918551443386482225}
+  m_GameObject: {fileID: 6452697871790995941}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -77,13 +77,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3566278715885724335
+--- !u!114 &1978832427111445663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8918551443386482225}
+  m_GameObject: {fileID: 6452697871790995941}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1875963b2504c2541b6a64f8ab4ab580, type: 3}
@@ -96,4 +96,4 @@ MonoBehaviour:
   UITreePrefab: {fileID: 5052719059817873255, guid: d667fd2c6c8070543bca6a2df884a84d, type: 3}
   UISheepPrefab: {fileID: 8969720973488203428, guid: 3ca2ebf57e051794d96a87008cb3e7c0, type: 3}
   UIGoblinPrefab: {fileID: 5517477766956682193, guid: 1d6de622c2f3ccf47b4d31c0aeffdebb, type: 3}
-  Tree: {fileID: 5688844690671238955, guid: 6a8dd16dadb590f42b740980f8a5f8d7, type: 3}
+  Tree: {fileID: 2215274075504970156, guid: de2e2f6a95a23664b982bc441c03bf44, type: 3}

@@ -10,6 +10,8 @@ public class GenerateMap : MonoBehaviour
     public GameObject Water;
     public GameObject Player;
     public GameObject Sheep;
+    public GameObject Tree;
+
     public GameObject Goblin;
 
 
@@ -141,6 +143,11 @@ public class GenerateMap : MonoBehaviour
         {
             GenerateEntity(Goblin, columns);
             GenerateTile(Land, columns);
+
+        }
+        if (a.Equals('T'))
+        {
+            GenerateTile(Tree, columns);
 
         }
     }

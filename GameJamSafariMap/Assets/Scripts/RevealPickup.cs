@@ -63,13 +63,14 @@ public class RevealPickup : MonoBehaviour
             }
 
 
+            GameObject TreeGroup = GameObject.Find("TreeGroup");
+            Destroy(TreeGroup,0);
 
             GameObject map = GameObject.Find("Map");
             if (map == null)
                 map = GameObject.Find("Map(Clone)");
             Destroy(map);
-            GameObject TreeGroup = GameObject.Find("TreeGroup");
-            Destroy(TreeGroup);
+
             map = Instantiate(Map, transform);
             map.transform.SetParent(GameObject.Find("Canvas").transform, false);
         }

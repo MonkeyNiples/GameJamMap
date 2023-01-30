@@ -115,6 +115,7 @@ MonoBehaviour:
   _columns: 10
   _baseSize: {x: 2.5, y: 0, z: 2.5}
   _fog: {fileID: 2253549155465408927, guid: eeb306566930bfc4fa8d14d5d9c4cf44, type: 3}
+  _tree: {fileID: 2382772526967808347, guid: 632f0c091076a7e4a9047345707179c4, type: 3}
 --- !u!114 &1532724487748487344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +132,7 @@ MonoBehaviour:
   Water: {fileID: 6164874822334585394, guid: 1ae558351f09d8747863e9cb979cdb2e, type: 3}
   Player: {fileID: 975002447090720784, guid: 8da0b6812cef0a14d85f1047a23e98ca, type: 3}
   Sheep: {fileID: 3716805852375126293, guid: 69375d93fd90c6e439f4e931f0295f13, type: 3}
+  Tree: {fileID: 2215274075504970156, guid: de2e2f6a95a23664b982bc441c03bf44, type: 3}
   Goblin: {fileID: 2129718658888651413, guid: f07a8876145a11f40a9f83eb8f806bb4, type: 3}
   Reveal: {fileID: 5716202432293222671, guid: b26f8767cec6c134cb85167494909634, type: 3}
   mapSeed: 79L9L9L8W

@@ -79,7 +79,7 @@ public class MapManager : MonoBehaviour
 
         GameObject TreeGroup = new GameObject("TreeGroup");
 
-        GameObject[] AllLands =  RealLandArray.Concat(RealWaterArray.Concat(RealRevealArray.Concat(RealTreeArray).ToArray()).ToArray()).ToArray();
+        GameObject[] AllLands =  RealLandArray.Concat(RealWaterArray.Concat(RealRevealArray).ToArray()).ToArray();
         for(int i = 0; i < AllLands.Length; i++)
         {
             GameObject Land = AllLands[i];
@@ -217,7 +217,7 @@ public class MapManager : MonoBehaviour
             RealPlayer = GameObject.Find("Player(Clone)");
         Vector3 returnVector = RealPlayer.transform.position-BasePosition;
         returnVector = new Vector3(returnVector.x * 40, returnVector.z * 40, 0);
-        return returnVector + new Vector3(-25, 25);
+        return returnVector + new Vector3(-25, 45);
     }
 
     // Update is called once per frame
