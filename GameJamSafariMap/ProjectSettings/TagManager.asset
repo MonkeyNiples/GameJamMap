@@ -12,6 +12,7 @@ TagManager:
   - T_Goal
   - T_MapPickup
   - T_Reveal
+  - T_BreakingLand
   layers:
   - Default
   - TransparentFX

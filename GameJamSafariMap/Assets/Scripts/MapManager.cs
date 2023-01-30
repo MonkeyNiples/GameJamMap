@@ -12,6 +12,8 @@ public class MapManager : MonoBehaviour
     public GameObject UIPlayerPrefab;
     public GameObject UIRevealPrefab;
     public GameObject UITreePrefab;
+    public GameObject UIBreakingTilePrefab;
+
 
     public GameObject UISheepPrefab;
     public GameObject UIGoblinPrefab;
@@ -68,6 +70,14 @@ public class MapManager : MonoBehaviour
             UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40);
             UILand.transform.SetParent(transform, false);
         }
+        GameObject[] RealBreakArray = GameObject.FindGameObjectsWithTag("T_BreakingLand");
+        foreach (GameObject RealBreak in RealBreakArray)
+        {
+            GameObject UILand = Instantiate(UIBreakingTilePrefab, transform.position, transform.rotation);
+            UILand.transform.position = RealBreak.transform.position - BasePosition;
+            UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40);
+            UILand.transform.SetParent(transform, false);
+        }
 
         GameObject UIPlayer = Instantiate(UIPlayerPrefab, transform.position, transform.rotation);
         UIPlayer.transform.position = GetPlayerLocation();
@@ -85,7 +95,7 @@ public class MapManager : MonoBehaviour
 
         GameObject TreeGroup = new GameObject("TreeGroup");
 
-        GameObject[] AllLands = RealLandArray.Concat(RealWaterArray.Concat(RealRevealArray).ToArray()).ToArray();
+        GameObject[] AllLands = RealLandArray.Concat(RealWaterArray.Concat(RealRevealArray.Concat(RealBreakArray).ToArray()).ToArray()).ToArray();
         for (int i = 0; i < AllLands.Length; i++)
         {
             GameObject Land = AllLands[i];

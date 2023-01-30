@@ -9,6 +9,8 @@ public class RevealPickup : MonoBehaviour
     public GameObject Land;
     public GameObject Water;
     public GameObject TreeTile;
+    public GameObject BreakingTile;
+
     public GameObject Reveal;
     public bool IsTriggered = false;
     public GameObject Goblin;
@@ -167,6 +169,11 @@ public class RevealPickup : MonoBehaviour
         {
             GenerateEntity(Goblin, columns);
             GenerateTile(Land, columns);
+
+        }
+        if (a.Equals('B'))
+        {
+            GenerateTile(BreakingTile, columns);
 
         }
 
