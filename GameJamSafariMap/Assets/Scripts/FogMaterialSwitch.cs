@@ -40,9 +40,17 @@ public class FogMaterialSwitch : MonoBehaviour
             if (RowDiff == 0 && ColumnDiff == 0)
                 transform.GetComponent<MeshRenderer>().material = Transparent;
             else if (RowDiff > 1 || ColumnDiff > 1 || ColumnDiff < -1 || RowDiff < -1)
-                transform.GetComponent<MeshRenderer>().material = Hard_Fog;
+        {
+            transform.GetComponent<MeshRenderer>().material = Hard_Fog;
+            this.GetComponentInChildren<ParticleSystem>().Play();
+        }
+                
             else
-                transform.GetComponent<MeshRenderer>().material = Soft_Fog;
+            {
+            transform.GetComponent<MeshRenderer>().material = Soft_Fog;
+            this.GetComponentInChildren<ParticleSystem>().Stop();
+            }
+            
 
         
     }
