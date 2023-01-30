@@ -143,7 +143,7 @@ public class MapManager : MonoBehaviour
             }
             if (!hasMore)
             {
-                GameObject tree = Instantiate(Tree, Land.transform.position - new Vector3(0, 0, 2.5f), transform.rotation);
+                GameObject tree = Instantiate(Tree, Land.transform.position - new Vector3(0, 2, 2.5f), transform.rotation);
                 tree.transform.SetParent(TreeGroup.transform);
                 GameObject UILand = Instantiate(UITreePrefab, transform.position, transform.rotation);
                 UILand.transform.position = tree.transform.position - BasePosition;
