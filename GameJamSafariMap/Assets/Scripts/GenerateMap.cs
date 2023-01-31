@@ -49,7 +49,8 @@ public class GenerateMap : MonoBehaviour
             }
 
         }
-        transform.position= new Vector3((columns/2)*2.5f,0,-((mapLength / columns) / 2f)*2.5f);
+
+        transform.position= new Vector3((columns/2)*2.5f,0,-((mapLength / columns) / 2f)*2.5f+2.5f);
 
 
 

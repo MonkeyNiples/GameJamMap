@@ -15,12 +15,10 @@ public class backgroundTreeScript : MonoBehaviour
     {
         transform.position+=new Vector3(0,-0.0001f,0);
     }
-    private void OnCollissionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collission)
     {
-        if (collision.transform.name != "Pr_Fog(Clone)")
-        {
+
             Destroy(gameObject);
-        }
     }
 
 }
