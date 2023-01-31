@@ -24,4 +24,13 @@ public class ScenesManager : MonoBehaviour
     {
         Application.Quit();
     }
+    public void SwitchToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void SwitchToNextLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex + 1);
+    }
 }

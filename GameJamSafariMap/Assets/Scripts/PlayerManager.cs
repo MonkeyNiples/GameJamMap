@@ -9,9 +9,17 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     public bool UsingMap = false;
     public int FacingDirection = 0;
+    bool isMoving;
     void Start()
     {
         
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == ("T_Goal"))
+        {
+            GameObject.Find("VictoryPanel").GetComponent<Animator>().SetBool("goUp",true);
+        }
     }
 
     // Update is called once per frame
@@ -20,11 +28,17 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             UsingMap = !UsingMap;
+            if (!UsingMap)
+                FindObjectOfType<SoundManager>().playSound_MapClose();
+            else
+                FindObjectOfType<SoundManager>().playSound_MapOpen();
+
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
             Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
         }
+        if(!isMoving)
         CheckDirection();
        
 
@@ -50,7 +64,11 @@ public class PlayerManager : MonoBehaviour
                             }
                         }
                         if (!isOccupied)
-                             transform.transform.localPosition += new Vector3(0, 0, 2.5f);
+                        {
+                            transform.transform.localPosition += new Vector3(0, 0, 2.5f);
+                            GetComponentInChildren<SmoothMovement>().movePlayer(new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z -2.5f), new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z ));
+                            isMoving = true;
+                        }
                         break;
 
                     case 2:
@@ -63,7 +81,12 @@ public class PlayerManager : MonoBehaviour
                             }
                         }
                         if (!isOccupied)
+                        {
                             transform.transform.localPosition += new Vector3(2.5f, 0, 0);
+                            GetComponentInChildren<SmoothMovement>().movePlayer(new Vector3(transform.transform.localPosition.x - 2.5f, transform.transform.localPosition.y, transform.transform.localPosition.z ), new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z));
+                            isMoving = true;
+                        }
+
                         break;
 
                     case 3:
@@ -76,7 +99,11 @@ public class PlayerManager : MonoBehaviour
                             }
                         }
                         if (!isOccupied)
+                        {
                             transform.transform.localPosition -= new Vector3(0, 0, 2.5f);
+                            GetComponentInChildren<SmoothMovement>().movePlayer(new Vector3(transform.transform.localPosition.x , transform.transform.localPosition.y, transform.transform.localPosition.z + 2.5f), new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z));
+                            isMoving = true;
+                        }
                         break;
 
                     case 4:
@@ -89,7 +116,11 @@ public class PlayerManager : MonoBehaviour
                             }
                         }
                         if (!isOccupied)
+                        {
                             transform.transform.localPosition -= new Vector3(2.5f, 0, 0);
+                            GetComponentInChildren<SmoothMovement>().movePlayer(new Vector3(transform.transform.localPosition.x + 2.5f, transform.transform.localPosition.y, transform.transform.localPosition.z ), new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z));
+                            isMoving = true;
+                        }
                         break;
 
                     default:
@@ -141,5 +172,9 @@ public class PlayerManager : MonoBehaviour
 
 
         }
+    }
+    public void MovementStopped() //called when the player has reached the next tile (the smooth movement has ended)
+    {
+        isMoving = false;
     }
 }
