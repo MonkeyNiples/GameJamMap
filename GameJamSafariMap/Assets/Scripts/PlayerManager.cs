@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     public bool UsingMap = false;
     public int FacingDirection = 0;
-    bool isMoving;
+    public bool isMoving;
     void Start()
     {
         
@@ -39,7 +39,7 @@ public class PlayerManager : MonoBehaviour
             Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
         }
         if(!isMoving)
-        CheckDirection();
+             CheckDirection();
        
 
 

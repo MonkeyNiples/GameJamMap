@@ -20,6 +20,7 @@ public class stopJumpingAnimation : MonoBehaviour
     {
         
     }
+
     public void AnimationEndedPlayer()
     {
         FindObjectOfType<PlayerManager>().MovementStopped();
