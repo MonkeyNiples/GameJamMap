@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TreeEditor;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 public class MapManager : MonoBehaviour
@@ -95,55 +96,15 @@ public class MapManager : MonoBehaviour
 
         GameObject TreeGroup = new GameObject("TreeGroup");
 
-        GameObject[] AllLands = RealLandArray.Concat(RealWaterArray.Concat(RealRevealArray.Concat(RealBreakArray).ToArray()).ToArray()).ToArray();
-        for (int i = 0; i < AllLands.Length; i++)
-        {
-            GameObject Land = AllLands[i];
-            bool hasMore = false;
-            for (int j = 0; j < AllLands.Length; j++)
-            {
-                GameObject CompareLand = AllLands[j];
-                if (Land.transform.position.x > CompareLand.transform.position.x)
-                {
-                    hasMore = true;
-                    break;
-                }
-            }
+        GameObject[] AllLands = RealLandArray.Concat(RealWaterArray.Concat(RealRevealArray.Concat(RealBreakArray.Concat(RealTreeArray)).ToArray().ToArray()).ToArray()).ToArray();
+        AllLands=PutLands(-1, 0, AllLands, BasePosition);
+        AllLands = PutLands(1, 0, AllLands, BasePosition);
+        AllLands = PutLands(0, -1, AllLands, BasePosition);
+        AllLands = PutLands(-1, 0, AllLands, BasePosition);
+        AllLands = PutLands(1, 0, AllLands, BasePosition);
+        AllLands = PutLands(0, -1, AllLands, BasePosition);
 
-            if (!hasMore)
-            {
-                GameObject tree = Instantiate(Tree, Land.transform.position - new Vector3(2.5f, 0, 0), transform.rotation);
-                tree.transform.SetParent(TreeGroup.transform);
-                GameObject UILand = Instantiate(UITreePrefab, transform.position, transform.rotation);
-                UILand.transform.position = tree.transform.position - BasePosition;
-                UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40);
-                UILand.transform.SetParent(transform, false);
-            }
-        }
-        for (int i = 0; i < AllLands.Length; i++)
-        {
-            GameObject Land = AllLands[i];
-            bool hasMore = false;
-            for (int j = 0; j < AllLands.Length; j++)
-            {
-                GameObject CompareLand = AllLands[j];
-                if (Land.transform.position.x < CompareLand.transform.position.x)
-                {
-                    hasMore = true;
-                    break;
-                }
-            }
-            if (!hasMore)
-            {
-                GameObject tree = Instantiate(Tree, Land.transform.position - new Vector3(-2.5f, 0, 0), transform.rotation);
-                tree.transform.SetParent(TreeGroup.transform);
-                GameObject UILand = Instantiate(UITreePrefab, transform.position, transform.rotation);
-                UILand.transform.position = tree.transform.position - BasePosition;
-                UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40);
-                UILand.transform.SetParent(transform, false);
 
-            }
-        }
         for (int i = 0; i < AllLands.Length; i++)
         {
             GameObject Land = AllLands[i];
@@ -167,30 +128,71 @@ public class MapManager : MonoBehaviour
                 UILand.transform.SetParent(transform, false);
             }
         }
-        for (int i = 0; i < AllLands.Length; i++)
+    }
+
+    private GameObject[] PutLands(int v1, int v2, GameObject[] allLands, Vector3 basePosition)
+    {
+        GameObject TreeGroup = GameObject.Find("TreeGroup");
+        List<GameObject> TheseTrees = new List<GameObject>();
+        if (v1 != 0)
         {
-            GameObject Land = AllLands[i];
-            bool hasMore = false;
-            for (int j = 0; j < AllLands.Length; j++)
+            for (int i = 0; i < allLands.Length; i++)
             {
-                GameObject CompareLand = AllLands[j];
-                if (Land.transform.position.z < CompareLand.transform.position.z)
+                GameObject Land = allLands[i];
+                bool hasMore = false;
+                for (int j = 0; j < allLands.Length; j++)
                 {
-                    hasMore = true;
-                    break;
+                    GameObject CompareLand = allLands[j];
+                    if (Land.transform.position.x*v1 > CompareLand.transform.position.x*v1)
+                    {
+                        hasMore = true;
+                        break;
+                    }
+                }
+
+                if (!hasMore)
+                {
+                    GameObject tree = Instantiate(Tree, Land.transform.position - new Vector3(2.5f*v1, 0, 0), transform.rotation);
+                    tree.transform.SetParent(TreeGroup.transform);
+                    GameObject UILand = Instantiate(UITreePrefab, transform.position, transform.rotation);
+                    UILand.transform.position = tree.transform.position - basePosition;
+                    UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40);
+                    UILand.transform.SetParent(transform, false);
+                    TheseTrees.Add(tree);
                 }
             }
-            if (!hasMore)
+        }
+        else
+        {
+            for (int i = 0; i < allLands.Length; i++)
             {
-                GameObject tree = Instantiate(Tree, Land.transform.position - new Vector3(0, 0, -2.5f), transform.rotation);
-                tree.transform.SetParent(TreeGroup.transform);
-                GameObject UILand = Instantiate(UITreePrefab, transform.position, transform.rotation);
-                UILand.transform.position = tree.transform.position - BasePosition;
-                UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40);
-                UILand.transform.SetParent(transform, false);
+                GameObject Land = allLands[i];
+                bool hasMore = false;
+                for (int j = 0; j < allLands.Length; j++)
+                {
+                    GameObject CompareLand = allLands[j];
+                    if (Land.transform.position.z * v2 > CompareLand.transform.position.z*v2)
+                    {
+                        hasMore = true;
+                        break;
+                    }
+                }
+
+                if (!hasMore)
+                {
+                    GameObject tree = Instantiate(Tree, Land.transform.position - new Vector3(0, 0, 2.5f*v2), transform.rotation);
+                    tree.transform.SetParent(TreeGroup.transform);
+                    GameObject UILand = Instantiate(UITreePrefab, transform.position, transform.rotation);
+                    UILand.transform.position = tree.transform.position - basePosition;
+                    UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40);
+                    UILand.transform.SetParent(transform, false);
+                    TheseTrees.Add(tree);
+                }
             }
         }
+        return allLands = allLands.Concat(TheseTrees.ToArray()).ToArray();
     }
+
     private Vector3 GetGoblinLocation()
     {
         GameObject Base = GameObject.Find("Base");
@@ -202,7 +204,7 @@ public class MapManager : MonoBehaviour
         {
             Vector3 returnVector = RealGoblin.transform.position - BasePosition;
             returnVector = new Vector3(returnVector.x * 40, returnVector.z * 40, 0);
-            return returnVector + new Vector3(-25,25);
+            return returnVector + new Vector3(-50,45);
         }
         return new Vector3(2000,2000);
     }
@@ -218,7 +220,7 @@ public class MapManager : MonoBehaviour
         {
             Vector3 returnVector = RealSheep.transform.position - BasePosition;
             returnVector = new Vector3(returnVector.x * 40, returnVector.z * 40, 0);
-            return returnVector + new Vector3(-25,25) ;
+            return returnVector + new Vector3(-50, 45) ;
         }
         return new Vector3(2000, 2000);
 

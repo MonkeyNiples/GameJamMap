@@ -19,19 +19,20 @@ public class FogManager : MonoBehaviour
         Vector3 TILEEXTRA = new Vector3(-5, 0, 5);
 
         GameObject fogDad = new GameObject();
-        gameObject.transform.parent = transform;
+        fogDad.transform.parent = transform;
 
+            
         for (int i = 0; i < _rows; i++)
         {
             for( int j = 0; j < _columns; j++)
             {
-                
-
 
                 GameObject gameObject = Instantiate(_fog, transform.position, transform.rotation);
                 gameObject.transform.position = new Vector3(i*_baseSize.x,2,-j*_baseSize.z)+TILEEXTRA +new Vector3(1.25f,0,1.25f);
                 gameObject.transform.parent = fogDad.transform;
-                
+
+
+
             }
         }
     }
