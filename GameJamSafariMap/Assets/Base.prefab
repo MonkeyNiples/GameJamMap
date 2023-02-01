@@ -136,4 +136,4 @@ MonoBehaviour:
   BreakingTile: {fileID: 4973854855079746029, guid: d9090130903d0a64795013b1bb581033, type: 3}
   Goblin: {fileID: 2129718658888651413, guid: f07a8876145a11f40a9f83eb8f806bb4, type: 3}
   Reveal: {fileID: 5716202432293222671, guid: b26f8767cec6c134cb85167494909634, type: 3}
-  mapSeed: 
+  mapSeed: 6L5TP4LS

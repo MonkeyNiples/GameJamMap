@@ -73,7 +73,7 @@ public class SheepAI : MonoBehaviour
             Vector3 lastPosition = transform.position;
             transform.position += new Vector3(v1 * 2.5f, 0, v2 * 2.5f);
             transform.rotation = Quaternion.Euler(new Vector3(0, v1 * 90 + (-v2 * 90 + 90 * Math.Abs(v2)), 0));
-            GetComponentInChildren<SmoothMovement>().movePlayer((lastPosition), new Vector3(transform.position.x, transform.position.y, transform.position.z));
+            GetComponentInChildren<SmoothMovement>().movePlayer((lastPosition), new Vector3(transform.position.x, transform.position.y, transform.position.z),this.gameObject);
 
             Debug.Log($" sheep succesfully moved to {v2} {v1}");
 

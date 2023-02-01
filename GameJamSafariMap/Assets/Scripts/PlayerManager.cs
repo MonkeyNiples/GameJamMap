@@ -66,7 +66,7 @@ public class PlayerManager : MonoBehaviour
                         if (!isOccupied)
                         {
                             transform.transform.localPosition += new Vector3(0, 0, 2.5f);
-                            GetComponentInChildren<SmoothMovement>().movePlayer(new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z -2.5f), new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z ));
+                            GetComponentInChildren<SmoothMovement>().movePlayer(new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z -2.5f), new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z ), this.gameObject);
                             isMoving = true;
                         }
                         break;
@@ -83,7 +83,7 @@ public class PlayerManager : MonoBehaviour
                         if (!isOccupied)
                         {
                             transform.transform.localPosition += new Vector3(2.5f, 0, 0);
-                            GetComponentInChildren<SmoothMovement>().movePlayer(new Vector3(transform.transform.localPosition.x - 2.5f, transform.transform.localPosition.y, transform.transform.localPosition.z ), new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z));
+                            GetComponentInChildren<SmoothMovement>().movePlayer(new Vector3(transform.transform.localPosition.x - 2.5f, transform.transform.localPosition.y, transform.transform.localPosition.z ), new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z), this.gameObject);
                             isMoving = true;
                         }
 
@@ -101,7 +101,7 @@ public class PlayerManager : MonoBehaviour
                         if (!isOccupied)
                         {
                             transform.transform.localPosition -= new Vector3(0, 0, 2.5f);
-                            GetComponentInChildren<SmoothMovement>().movePlayer(new Vector3(transform.transform.localPosition.x , transform.transform.localPosition.y, transform.transform.localPosition.z + 2.5f), new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z));
+                            GetComponentInChildren<SmoothMovement>().movePlayer(new Vector3(transform.transform.localPosition.x , transform.transform.localPosition.y, transform.transform.localPosition.z + 2.5f), new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z), this.gameObject);
                             isMoving = true;
                         }
                         break;
@@ -118,7 +118,7 @@ public class PlayerManager : MonoBehaviour
                         if (!isOccupied)
                         {
                             transform.transform.localPosition -= new Vector3(2.5f, 0, 0);
-                            GetComponentInChildren<SmoothMovement>().movePlayer(new Vector3(transform.transform.localPosition.x + 2.5f, transform.transform.localPosition.y, transform.transform.localPosition.z ), new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z));
+                            GetComponentInChildren<SmoothMovement>().movePlayer(new Vector3(transform.transform.localPosition.x + 2.5f, transform.transform.localPosition.y, transform.transform.localPosition.z ), new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z), this.gameObject);
                             isMoving = true;
                         }
                         break;
