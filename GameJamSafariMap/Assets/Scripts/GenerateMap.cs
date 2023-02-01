@@ -27,7 +27,7 @@ public class GenerateMap : MonoBehaviour
     
 
 
-    void Awake()
+    void Start()
     {
         int columns = int.Parse(mapSeed[..1]);
         int output = 0;
