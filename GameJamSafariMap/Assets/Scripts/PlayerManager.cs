@@ -23,6 +23,21 @@ public class PlayerManager : MonoBehaviour
             GameObject.Find("VictoryPanel").GetComponent<Animator>().SetBool("goUp",true);
             _hasWon = true; //implemented so that victory jingle doesnt play multiple times (every time player collides with sheep)
         }
+        if (collision.gameObject.tag == ("T_Enemy") && _hasWon == false)
+        {
+            FindObjectOfType<SoundManager>().playSound_GameOverJingle();
+            GameObject.Find("GameOverPanel").GetComponent<Animator>().SetBool("goUp", true);
+            _hasWon = true; //implemented so that victory jingle doesnt play multiple times (every time player collides with sheep)
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == ("T_ObstacleLand") && _hasWon == false)
+        {
+            FindObjectOfType<SoundManager>().playSound_GameOverJingle();
+            GameObject.Find("GameOverPanel").GetComponent<Animator>().SetBool("goUp", true);
+            _hasWon = true; //implemented so that victory jingle doesnt play multiple times (every time player collides with sheep)
+        }
     }
 
     // Update is called once per frame
