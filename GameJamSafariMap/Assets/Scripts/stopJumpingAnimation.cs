@@ -24,7 +24,7 @@ public class stopJumpingAnimation : MonoBehaviour
     public void AnimationEndedPlayer()
     {
        // FindObjectOfType<PlayerManager>().MovementStopped();
-        jumpAnimatorPlayer.SetBool("isJumping", false);
+        //jumpAnimatorPlayer.SetBool("isJumping", false);
     }
     public void AnimationEndedSheep()
     {
