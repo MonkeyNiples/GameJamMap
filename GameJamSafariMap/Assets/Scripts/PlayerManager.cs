@@ -10,15 +10,33 @@ public class PlayerManager : MonoBehaviour
     public bool UsingMap = false;
     public int FacingDirection = 0;
     public bool isMoving;
+    bool _hasWon;
     void Start()
     {
         
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == ("T_Goal"))
+        if (collision.gameObject.tag == ("T_Goal") && _hasWon == false)
         {
+            FindObjectOfType<SoundManager>().playSound_VictoryJingle();
             GameObject.Find("VictoryPanel").GetComponent<Animator>().SetBool("goUp",true);
+            _hasWon = true; //implemented so that victory jingle doesnt play multiple times (every time player collides with sheep)
+        }
+        if (collision.gameObject.tag == ("T_Enemy") && _hasWon == false)
+        {
+            FindObjectOfType<SoundManager>().playSound_GameOverJingle();
+            GameObject.Find("GameOverPanel").GetComponent<Animator>().SetBool("goUp", true);
+            _hasWon = true; //implemented so that victory jingle doesnt play multiple times (every time player collides with sheep)
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == ("T_ObstacleLand") && _hasWon == false)
+        {
+            FindObjectOfType<SoundManager>().playSound_GameOverJingle();
+            GameObject.Find("GameOverPanel").GetComponent<Animator>().SetBool("goUp", true);
+            _hasWon = true; //implemented so that victory jingle doesnt play multiple times (every time player collides with sheep)
         }
     }
 
@@ -67,6 +85,7 @@ public class PlayerManager : MonoBehaviour
                         {
                             transform.transform.localPosition += new Vector3(0, 0, 2.5f);
                             GetComponentInChildren<SmoothMovement>().movePlayer(new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z -2.5f), new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z ), this.gameObject);
+                            FindObjectOfType<SoundManager>().playSound_PlayerJump();
                             isMoving = true;
                         }
                         break;
@@ -84,6 +103,7 @@ public class PlayerManager : MonoBehaviour
                         {
                             transform.transform.localPosition += new Vector3(2.5f, 0, 0);
                             GetComponentInChildren<SmoothMovement>().movePlayer(new Vector3(transform.transform.localPosition.x - 2.5f, transform.transform.localPosition.y, transform.transform.localPosition.z ), new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z), this.gameObject);
+                            FindObjectOfType<SoundManager>().playSound_PlayerJump();
                             isMoving = true;
                         }
 
@@ -102,6 +122,7 @@ public class PlayerManager : MonoBehaviour
                         {
                             transform.transform.localPosition -= new Vector3(0, 0, 2.5f);
                             GetComponentInChildren<SmoothMovement>().movePlayer(new Vector3(transform.transform.localPosition.x , transform.transform.localPosition.y, transform.transform.localPosition.z + 2.5f), new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z), this.gameObject);
+                            FindObjectOfType<SoundManager>().playSound_PlayerJump();
                             isMoving = true;
                         }
                         break;
@@ -119,6 +140,7 @@ public class PlayerManager : MonoBehaviour
                         {
                             transform.transform.localPosition -= new Vector3(2.5f, 0, 0);
                             GetComponentInChildren<SmoothMovement>().movePlayer(new Vector3(transform.transform.localPosition.x + 2.5f, transform.transform.localPosition.y, transform.transform.localPosition.z ), new Vector3(transform.transform.localPosition.x, transform.transform.localPosition.y, transform.transform.localPosition.z), this.gameObject);
+                            FindObjectOfType<SoundManager>().playSound_PlayerJump();
                             isMoving = true;
                         }
                         break;

@@ -117,7 +117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2697874382691543605, guid: 393a91b37decc58479b28bd22eba1cbe, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 0.02
+      value: 1.78
       objectReference: {fileID: 0}
     - target: {fileID: 2697874382691543605, guid: 393a91b37decc58479b28bd22eba1cbe, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.atime1

@@ -7,6 +7,12 @@ public class SoundManager : MonoBehaviour
     AudioSource mapOpenSound;
     [SerializeField]
     AudioSource mapCloseSound;
+    [SerializeField]
+    AudioSource playerJump;
+    [SerializeField]
+    AudioSource victoryJingle;
+    [SerializeField]
+    AudioSource gameOverJingle;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +31,17 @@ public class SoundManager : MonoBehaviour
     public void playSound_MapClose()
     {
         mapCloseSound.Play();
+    }
+    public void playSound_PlayerJump()
+    {
+        playerJump.Play();
+    }
+    public void playSound_VictoryJingle()
+    {
+        victoryJingle.Play();
+    }
+    public void playSound_GameOverJingle()
+    {
+        gameOverJingle.Play();
     }
 }

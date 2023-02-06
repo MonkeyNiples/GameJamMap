@@ -32,8 +32,9 @@ public class SmoothMovement : MonoBehaviour
             if (_gameObject.name == ("Player(Clone)") || _gameObject.name == ("Player"))
              {
                 _gameObject.GetComponent<PlayerManager>().MovementStopped();
-             }
+                jumpAnimator.SetBool("isJumping", false);
             }
+        }
     }
     public void movePlayer(Vector3 lastPosition, Vector3 newPosition, GameObject gameObject)
     {

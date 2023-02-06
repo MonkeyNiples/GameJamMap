@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7311565635198348528}
   - component: {fileID: 5773424894299902561}
   - component: {fileID: 6933455827479224652}
+  - component: {fileID: -8397231002424196404}
   m_Layer: 0
   m_Name: WaterTile
   m_TagString: T_ObstacleLand
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-8397231002424196404
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164874822334585394}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.010000011, y: 0.012466312, z: 0.010000011}
+  m_Center: {x: 0.0050000055, y: -0.004665094, z: -0.0050000055}
