@@ -262,7 +262,7 @@ PrefabInstance:
       objectReference: {fileID: 5716202432293222671, guid: b26f8767cec6c134cb85167494909634, type: 3}
     - target: {fileID: 1532724487748487344, guid: 694a4c76c0e7d5c4fa6984fd3cd716bd, type: 3}
       propertyPath: mapSeed
-      value: 33LR20(1R-2-1(33L))W
+      value: 32LR-30(1LTR-12(13L))LP3LS
       objectReference: {fileID: 0}
     - target: {fileID: 1532724487748487347, guid: 694a4c76c0e7d5c4fa6984fd3cd716bd, type: 3}
       propertyPath: m_RootOrder

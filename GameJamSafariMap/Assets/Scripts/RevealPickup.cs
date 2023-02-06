@@ -183,7 +183,7 @@ public class RevealPickup : MonoBehaviour
         int xLength = mapLength / columns;
         int zLength = mapLength % columns;
         Vector3 standardSize = new Vector3(2.5f, 0, 2.5f);
-        Instantiate(entity, transform.position + new Vector3((zLength + 0.5f) * standardSize.z, 20, (-xLength - 0.5f) * standardSize.x), transform.rotation);
+        Instantiate(entity, transform.position + new Vector3((zLength+ 0.5f + Where.x) * standardSize.z, 10, (-xLength +1.5f - Where.y) * standardSize.x), transform.rotation);
     }
 
     private void GenerateTile(GameObject prefab, int columns)

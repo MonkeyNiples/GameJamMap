@@ -1164,6 +1164,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Base
       objectReference: {fileID: 0}
+    - target: {fileID: 1532724487748487344, guid: 694a4c76c0e7d5c4fa6984fd3cd716bd, type: 3}
+      propertyPath: mapSeed
+      value: 5PLT4LSLT
+      objectReference: {fileID: 0}
     - target: {fileID: 1532724487748487347, guid: 694a4c76c0e7d5c4fa6984fd3cd716bd, type: 3}
       propertyPath: m_RootOrder
       value: 4
