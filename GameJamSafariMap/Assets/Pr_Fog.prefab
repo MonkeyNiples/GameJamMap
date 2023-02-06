@@ -112,6 +112,10 @@ PrefabInstance:
       value: GrayVolumeFog
       objectReference: {fileID: 0}
     - target: {fileID: 2697874382691543605, guid: 393a91b37decc58479b28bd22eba1cbe, type: 3}
+      propertyPath: lengthInSec
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2697874382691543605, guid: 393a91b37decc58479b28bd22eba1cbe, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 0.02
       objectReference: {fileID: 0}

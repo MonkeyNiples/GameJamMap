@@ -1639,6 +1639,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 948710943731115850, guid: eeb306566930bfc4fa8d14d5d9c4cf44, type: 3}
+      propertyPath: lengthInSec
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2253549155465408927, guid: eeb306566930bfc4fa8d14d5d9c4cf44, type: 3}
       propertyPath: m_Name
       value: Pr_Fog
