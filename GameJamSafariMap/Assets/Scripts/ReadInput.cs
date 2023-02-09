@@ -26,7 +26,11 @@ public class ReadInput : MonoBehaviour
     {
         input = s; 
         Debug.Log(input);
-        SceneManager.LoadScene("LevelBuildingTesting");
+        int columns;
+        if (int.TryParse(input.Substring(0, 1),out columns))
+        {
+            SceneManager.LoadScene("LevelBuildingTesting");
+        }
 
     }
 }

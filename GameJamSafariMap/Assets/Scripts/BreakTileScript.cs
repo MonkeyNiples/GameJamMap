@@ -35,7 +35,11 @@ public class BreakTileScript : MonoBehaviour
             stage = 2;
             GetComponent<MeshFilter>().mesh = Stage2;
             Destroy(collission.gameObject);
-
+            if (collission.gameObject.tag == ("T_Goal")|| collission.gameObject.tag == ("T_Player"))
+            {
+                FindObjectOfType<SoundManager>().playSound_GameOverJingle();
+                GameObject.Find("GameOverPanel").GetComponent<Animator>().SetBool("goUp", true);
+            }
         }
 
     }

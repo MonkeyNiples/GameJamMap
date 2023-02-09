@@ -87,9 +87,7 @@ public class MapManager : MonoBehaviour
         UISheep.transform.position = GetAnimalLocation();
         UISheep.transform.SetParent(transform, false);
 
-        GameObject UIGoblin = Instantiate(UIGoblinPrefab, transform.position, transform.rotation);
-        UIGoblin.transform.position = GetGoblinLocation();
-        UIGoblin.transform.SetParent(transform, false);
+         GetGoblinLocation();
 
 
 
@@ -192,20 +190,27 @@ public class MapManager : MonoBehaviour
         return allLands = allLands.Concat(TheseTrees.ToArray()).ToArray();
     }
 
-    private Vector3 GetGoblinLocation()
+    private void GetGoblinLocation()
     {
         GameObject Base = GameObject.Find("Base");
         Vector3 BasePosition = Base.transform.position;
-        GameObject RealGoblin = GameObject.Find("Goblin");
-        if (RealGoblin == null)
-            RealGoblin = GameObject.Find("Goblin Variant(Clone)");
-        if (RealGoblin != null)
+
+        GameObject OldUIGoblin;
+        GameObject[] OldGoblinUIArray = GameObject.FindGameObjectsWithTag("T_UIGoblin");
+        for(int i = OldGoblinUIArray.Length-1; i > -1; i--)
         {
-            Vector3 returnVector = RealGoblin.transform.position - BasePosition;
-            returnVector = new Vector3(returnVector.x * 40, returnVector.z * 40, 0);
-            return returnVector + new Vector3(-50,45);
+            OldUIGoblin = OldGoblinUIArray[i];
+            GameObject.Destroy(OldUIGoblin);
         }
-        return new Vector3(2000,2000);
+
+            GameObject[] RealGoblinArray = GameObject.FindGameObjectsWithTag("T_Enemy");
+        foreach (GameObject RealGoblin in RealGoblinArray)
+        {
+            GameObject UILand = Instantiate(UIGoblinPrefab, transform.position, transform.rotation);
+            UILand.transform.position = RealGoblin.transform.position - BasePosition;
+            UILand.transform.position = new Vector3(UILand.transform.position.x * 40, UILand.transform.position.z * 40) + new Vector3(-50, 45); 
+            UILand.transform.SetParent(transform, false);
+        }
     }
 
     private Vector3 GetAnimalLocation()
@@ -254,8 +259,7 @@ public class MapManager : MonoBehaviour
                 GameObject UISheep = GameObject.Find("UI_Sheep(Clone)");
                 UISheep.transform.localPosition = GetAnimalLocation();
 
-                GameObject UIGoblin = GameObject.Find("UI_Goblin(Clone)");
-                UIGoblin.transform.localPosition = GetGoblinLocation();
+               GetGoblinLocation();
     
 
                 transform.localPosition = new Vector3(0, 0, 0);

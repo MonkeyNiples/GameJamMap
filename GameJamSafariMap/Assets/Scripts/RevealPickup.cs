@@ -29,13 +29,13 @@ public class RevealPickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter(Collision collission)
@@ -66,7 +66,7 @@ public class RevealPickup : MonoBehaviour
 
 
             GameObject TreeGroup = GameObject.Find("TreeGroup");
-            Destroy(TreeGroup,0);
+            Destroy(TreeGroup, 0);
 
             GameObject map = GameObject.Find("Map");
             if (map == null)
@@ -89,13 +89,13 @@ public class RevealPickup : MonoBehaviour
         }
         if (a.Equals('R'))
         {
-            
+
 
             int xLength = mapLength / columns;
             int zLength = mapLength % columns;
             Vector3 standardSize = new Vector3(2.5f, 0, 2.5f);
             mapLength++;
-            GameObject newReveal = Instantiate(Reveal, transform.position + new Vector3((zLength+Where.x ) * standardSize.z, 0,(Where.y -xLength) * standardSize.x), Quaternion.Euler(Vector3.zero));
+            GameObject newReveal = Instantiate(Reveal, transform.position + new Vector3((zLength + Where.x) * standardSize.z, 0, (Where.y - xLength) * standardSize.x), Quaternion.Euler(Vector3.zero));
 
             RevealPickup TheScript = newReveal.GetComponent<RevealPickup>();
 
@@ -147,7 +147,7 @@ public class RevealPickup : MonoBehaviour
             }
             TheScript.mapSeed = seed;
 
-            
+
         }
         if (a.Equals('L'))
         {
@@ -173,7 +173,7 @@ public class RevealPickup : MonoBehaviour
         }
         if (a.Equals('B'))
         {
-            GenerateTile(BreakingTile, columns);
+            GenerateTileWILLEM(BreakingTile, columns);
 
         }
 
@@ -183,7 +183,7 @@ public class RevealPickup : MonoBehaviour
         int xLength = mapLength / columns;
         int zLength = mapLength % columns;
         Vector3 standardSize = new Vector3(2.5f, 0, 2.5f);
-        Instantiate(entity, transform.position + new Vector3((zLength+ 0.5f + Where.x) * standardSize.z, 10, (-xLength -0.5f + Where.y) * standardSize.x), transform.rotation);
+        Instantiate(entity, transform.position + new Vector3((zLength + 0.5f + Where.x) * standardSize.z, 10, (-xLength - 0.5f + Where.y) * standardSize.x), transform.rotation);
     }
 
     private void GenerateTile(GameObject prefab, int columns)
@@ -192,7 +192,16 @@ public class RevealPickup : MonoBehaviour
         int zLength = mapLength % columns;
         Vector3 standardSize = new Vector3(2.5f, 0, 2.5f);
         mapLength++;
-        Instantiate(prefab, transform.position + new Vector3((zLength + Where.x) * standardSize.z, 0, -((xLength-Where.y) * standardSize.x)), transform.rotation);
+        Instantiate(prefab, transform.position + new Vector3((zLength + Where.x) * standardSize.z, 0, ((-xLength + Where.y) * standardSize.x)), transform.rotation);
+
+    }
+    private void GenerateTileWILLEM(GameObject prefab, int columns)
+    {
+        int xLength = mapLength / columns;
+        int zLength = mapLength % columns;
+        Vector3 standardSize = new Vector3(2.5f, 0, 2.5f);
+        mapLength++;
+        Instantiate(prefab, transform.position + new Vector3((zLength + Where.x) * standardSize.z , 0.5f, (-xLength + Where.y) * standardSize.x), transform.rotation);
 
     }
 }

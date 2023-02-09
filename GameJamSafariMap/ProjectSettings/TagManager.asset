@@ -13,6 +13,7 @@ TagManager:
   - T_MapPickup
   - T_Reveal
   - T_BreakingLand
+  - T_UIGoblin
   layers:
   - Default
   - TransparentFX

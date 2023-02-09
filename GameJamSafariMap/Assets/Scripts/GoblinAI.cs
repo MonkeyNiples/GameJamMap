@@ -20,24 +20,27 @@ public class GoblinAI : MonoBehaviour
             {
                 RealPlayer = GameObject.Find("Player(Clone)");
             }
-
-            int RowDiff = (Mathf.CeilToInt((transform.position.x) * 2f / 5)) - (Mathf.CeilToInt(RealPlayer.transform.position.x * 2 / 5f));
-
-            int ColumnDiff = (Mathf.CeilToInt((transform.position.z) * 2f / 5)) - (Mathf.CeilToInt(RealPlayer.transform.position.z * 2 / 5f));
-
-            if (RowDiff == 0 && ColumnDiff!=0)
+            PlayerManager TheScript = RealPlayer.GetComponent<PlayerManager>();
+            if (!TheScript.UsingMap)
             {
-                transform.position -= new Vector3(0, 0, ColumnDiff * 2.5f / Mathf.Abs(ColumnDiff));
-                transform.rotation = Quaternion.Euler(new Vector3(0, ColumnDiff / Mathf.Abs(ColumnDiff) * 90 + 90, 0));
+                int RowDiff = (Mathf.CeilToInt((transform.position.x) * 2f / 5)) - (Mathf.CeilToInt(RealPlayer.transform.position.x * 2 / 5f));
 
-            }
+                int ColumnDiff = (Mathf.CeilToInt((transform.position.z) * 2f / 5)) - (Mathf.CeilToInt(RealPlayer.transform.position.z * 2 / 5f));
 
-            if (ColumnDiff == 0 && RowDiff!=0)
-            {
-                transform.position -= new Vector3(RowDiff * 2.5f / Mathf.Abs(RowDiff), 0, 0);
-                transform.rotation = Quaternion.Euler(new Vector3(0, -RowDiff / Mathf.Abs(RowDiff) * 90, 0));
+                if (RowDiff == 0 && ColumnDiff != 0)
+                {
+                    transform.position -= new Vector3(0, 0, ColumnDiff * 2.5f / Mathf.Abs(ColumnDiff));
+                    transform.rotation = Quaternion.Euler(new Vector3(0, ColumnDiff / Mathf.Abs(ColumnDiff) * 90 + 90, 0));
+
+                }
+
+                if (ColumnDiff == 0 && RowDiff != 0)
+                {
+                    transform.position -= new Vector3(RowDiff * 2.5f / Mathf.Abs(RowDiff), 0, 0);
+                    transform.rotation = Quaternion.Euler(new Vector3(0, -RowDiff / Mathf.Abs(RowDiff) * 90, 0));
 
 
+                }
             }
         }
     }
