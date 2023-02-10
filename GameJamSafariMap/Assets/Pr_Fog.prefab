@@ -107,6 +107,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8394321152976792873}
     m_Modifications:
+    - target: {fileID: 255263643031865203, guid: 393a91b37decc58479b28bd22eba1cbe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 506371953568091953, guid: 393a91b37decc58479b28bd22eba1cbe, type: 3}
       propertyPath: m_Name
       value: GrayVolumeFog
@@ -117,7 +121,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2697874382691543605, guid: 393a91b37decc58479b28bd22eba1cbe, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 1.78
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2697874382691543605, guid: 393a91b37decc58479b28bd22eba1cbe, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 6.53
       objectReference: {fileID: 0}
     - target: {fileID: 2697874382691543605, guid: 393a91b37decc58479b28bd22eba1cbe, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.atime1

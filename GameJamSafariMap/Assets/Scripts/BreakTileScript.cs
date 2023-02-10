@@ -28,12 +28,13 @@ public class BreakTileScript : MonoBehaviour
             stage = 1;
             transform.GetComponent<MeshRenderer>().material = Stage2Mat;
             GetComponent<MeshFilter>().mesh = Stage1;
-
         }
         else 
         {
             stage = 2;
             GetComponent<MeshFilter>().mesh = Stage2;
+            GetComponent<AudioSource>().Play();
+
             Destroy(collission.gameObject);
             if (collission.gameObject.tag == ("T_Goal")|| collission.gameObject.tag == ("T_Player"))
             {

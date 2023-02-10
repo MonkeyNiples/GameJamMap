@@ -29,15 +29,21 @@ public class GoblinAI : MonoBehaviour
 
                 if (RowDiff == 0 && ColumnDiff != 0)
                 {
+                    Vector3 lastPosition = transform.position;
                     transform.position -= new Vector3(0, 0, ColumnDiff * 2.5f / Mathf.Abs(ColumnDiff));
                     transform.rotation = Quaternion.Euler(new Vector3(0, ColumnDiff / Mathf.Abs(ColumnDiff) * 90 + 90, 0));
+                    GetComponentInChildren<SmoothMovement>().movePlayer((lastPosition), new Vector3(transform.position.x, transform.position.y, transform.position.z), this.gameObject);
+
 
                 }
 
                 if (ColumnDiff == 0 && RowDiff != 0)
                 {
+                    Vector3 lastPosition = transform.position;
+
                     transform.position -= new Vector3(RowDiff * 2.5f / Mathf.Abs(RowDiff), 0, 0);
                     transform.rotation = Quaternion.Euler(new Vector3(0, -RowDiff / Mathf.Abs(RowDiff) * 90, 0));
+                    GetComponentInChildren<SmoothMovement>().movePlayer((lastPosition), new Vector3(transform.position.x, transform.position.y, transform.position.z), this.gameObject);
 
 
                 }
